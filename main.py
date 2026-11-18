@@ -10,7 +10,7 @@ screen.bgcolor('black')
 screen.title("Snake game")
 
 snake = Snake()
-food = Food
+food = Food()
 
 screen.listen()
 screen.onkey(snake.up, "Up")
@@ -24,6 +24,8 @@ while game_is_on:
     time.sleep(0.08)
     snake.move()
 
+    if snake.head.distance(food) < 15:
+        food.refresh()
 
 
 
